@@ -15,7 +15,8 @@
     "vant": "^1.6.18",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
-    "vuex": "^3.1.1"
+    "vuex": "^3.1.1",
+    "lodash": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
