@@ -1,16 +1,15 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console,no-unused-vars */
 import axios from "axios";
 import { isPlainObject, isUndefined, omitBy } from 'lodash';
 import Storage from '../utils/Storage';
 
-const isInValidValue = (v) =>{
+const isInValidValue = (v) => {
     if (isUndefined(v) || v === '') {
         return true;
     }
 };
-export default (option,reqOption)=>{
-    const baseUrl ='http://39.105.35.189:3000';
-    const { url, method = 'get', headers = {} } = option;
+export default (url, option = {}, reqOption) => {
+    const { method = 'get', headers = {} } = option;
     let { data = {} } = option;
     if (!option.containEmpty && isPlainObject(data)) {
         data = omitBy(data, isInValidValue);
@@ -23,19 +22,20 @@ export default (option,reqOption)=>{
     return new Promise(async resolve => {
         try {
             const token = Storage.getItem('token');
-            const headers2 = {
-                Accept: 'application/json',
-                'Content-Type': headers['Content-Type'] || 'application/json',
-                'X-ACCESS-TOKEN': token
-            };
+            // const headers2 = {
+            //     Accept: 'application/json',
+            //     'Content-Type': headers['Content-Type'] || 'application/json',
+            //     'ACCESS-TOKEN': token
+            // };
             const res = await axios({
-                url: baseUrl + url,
-                method,
-                headers: headers2,
-                data,
-                params,
-                ...reqOption
+                url,
+                // method,
+                // headers: headers2,
+                // data,
+                // params,
+                // ...reqOption
             });
+            console.log('sdf')
             if (res.status !== 200) {
                 // message.error('网络错误！');
             }

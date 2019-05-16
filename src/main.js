@@ -6,10 +6,9 @@ import 'vant/lib/button/style';
 import { Tabbar, TabbarItem } from 'vant';
 
 Vue.config.productionTip = false;
-
 Vue.use(Button);
 
 Vue.use(Tabbar).use(TabbarItem);
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

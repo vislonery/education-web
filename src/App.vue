@@ -25,7 +25,8 @@
         },
         methods: {
             fetchData:async ()=>{
-                const data = await fetch('http://39.105.35.189:3000/order')
+                console.log('123')
+                const data = await fetch('/order',)
                 console.info(data)
             }
         },
