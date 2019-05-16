@@ -26,7 +26,7 @@
         methods: {
             fetchData:async ()=>{
                 console.log('123')
-                const data = await fetch('/order',)
+                const data = await fetch('/api/order',)
                 console.info(data)
             }
         },
