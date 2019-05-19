@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <div @click="fetchData">请求</div>
+        <p>test</p>
         <img alt="Vue logo" src="./assets/logo.png">
         <HelloWorld msg="Welcome to Your Vue.js App" />
         <van-tabbar v-model="active">
