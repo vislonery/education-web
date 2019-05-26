@@ -1,36 +1,44 @@
 <template>
     <div id="app">
         <div @click="fetchData">请求</div>
-        <p>test</p>
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App" />
-        <van-tabbar v-model="active">
-            <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-            <van-tabbar-item icon="search" dot>标签</van-tabbar-item>
-            <van-tabbar-item icon="friends-o" info="5">标签</van-tabbar-item>
-            <van-tabbar-item icon="setting-o" info="20">标签</van-tabbar-item>
+        <van-tabbar v-model="active" :fixed="true" :change="switchTab">
+            <van-tabbar-item v-for="item in TabData" :key="item.key" :icon="item.icon">
+                {{item.name}}
+            </van-tabbar-item>
         </van-tabbar>
     </div>
 </template>
 
 <script>
-    /* eslint-disable no-console */
-
-    import HelloWorld from './components/HelloWorld.vue'
+    /* eslint-disable no-console,no-unused-vars */
 
     import fetch from './utils/fetch'
+
+    const TabData = [
+        { name: '首页', icon: 'gem-o', key: 'index', route: '/' },
+        { name: '发现', icon: 'newspaper-o', key: 'discovery', route: '/discovery' },
+        { name: '发布', icon: 'records', key: 'public', route: '/public' },
+        { name: '消息', icon: 'chat-o', key: 'message', route: '/message' },
+        { name: '我的', icon: 'user-o', key: 'user', route: '/user' }];
     export default {
         name: 'app',
         components: {
-            HelloWorld
+            // HelloWorld
         },
+        data: () => ({
+            active: '0',
+            TabData,
+        }),
         methods: {
-            fetchData:async ()=>{
-                console.log('123')
-                const data = await fetch('api/order',)
-                console.info(data)
-            }
+            async fetchData() {
+                const data = await fetch('api/order');
+            },
+            switchTab(flag) {
+                this.active = flag;
+            },
         },
+        computed: {
+        }
     }
 </script>
 
