@@ -11,7 +11,9 @@ import { Tab, Tabs } from 'vant';
 import { Icon } from 'vant';
 import { Popup } from 'vant';
 // import { ActionSheet } from 'vant';
+import { Field } from 'vant';
 
+Vue.use(Field);
 // Dialog({ message: '提示' });
 Vue.use(ActionSheet);
 Vue.use(Popup);

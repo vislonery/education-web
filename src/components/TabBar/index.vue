@@ -15,7 +15,7 @@
         </van-tabbar>
         <van-action-sheet v-model="showChoose">
             <div class="choose-contain">
-                <div>我要找老师</div>
+                <div @click="handlePublish">我要找老师</div>
                 <div>我要找学生</div>
                 <p>发帖子</p>
             </div>
@@ -69,6 +69,9 @@
 			handleShowChoose() {
 				console.log('show')
 				this.showChoose = true
+			},
+			handlePublish() {
+				this.$router.push('/publish')
 			}
 		},
 		computed: {
